@@ -1,7 +1,11 @@
 # Получение матрицы зависимостей
 
-## CLI
+## API
 
+* [endoflife.date](docs/api/endoflife.date-v1.md)
+* [pypi](docs/api/pypi.md)
+
+## CLI
 
 ### Основное применение
 
@@ -34,7 +38,7 @@
 Аргументы могут содержать версионные операторы:
 
 ```bash
-$ matrix python>=3.11 -l django>=4.1
+$ uv run eol-matrix matrix python>=3.11 -l django>=4.1
 ```
 
 - Версионный фильтр применяется как **постфильтр результатов**
@@ -85,7 +89,7 @@ django60  3.12, 3.13, 3.14
 ### Команда `matrix`
 
 ```bash
-$ matrix <lang> -l <library> [--lib <library>...] [--with-eol] [--format json|table]
+$  uv run eol-matrix matrix <lang> -l <library> [--lib <library>...] [--with-eol] [--format json|table]
 ```
 
 **Аргументы**
@@ -101,25 +105,25 @@ $ matrix <lang> -l <library> [--lib <library>...] [--with-eol] [--format json|ta
 
 ```bash
 # Простая матрица
-$ matrix python -l django
+$ uv run eol-matrix matrix python -l django
 
 # Несколько зависимостей
-$ matrix python -l django -l django-debug-toolbar
+$ uv run eol-matrix matrix python -l django -l django-debug-toolbar
 
 # С включением EOL-версий
-$ matrix python -l django --with-eol
+$ uv run eol-matrix matrix python -l django --with-eol
 
 # Фильтрация по версии
-$ matrix python>=3.11 -l django>=4.1
+$ uv run eol-matrix matrix python>=3.11 -l django>=4.1
 
 # Табличный формат
-$ matrix python -l django --format table
+$ uv run eol-matrix matrix python -l django --format table
 ```
 
 **Пример вывода**
 
 ```bash
-$ matrix python -l django
+$ uv run eol-matrix matrix python -l django
 
 Check endoflife.date...
   python: ['3.10', '3.11', '3.12', '3.13', '3.14']
