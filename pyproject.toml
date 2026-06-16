@@ -6,6 +6,8 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 dependencies = [
+    "packaging>=26.2",
+    "requests>=2.34.2",
 ]
 
 [project.scripts]
